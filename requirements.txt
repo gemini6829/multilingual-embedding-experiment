@@ -1,7 +1,7 @@
+numpy==1.26.4
 pandas
-numpy
 matplotlib
-torch
-transformers
+torch==2.2.2
+transformers==4.41.2
 jupyter
 ipykernel
