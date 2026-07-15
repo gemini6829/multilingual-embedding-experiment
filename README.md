@@ -95,6 +95,16 @@ These two sentences differ logically, but they still share most of their words. 
 
 Cross-lingual same-meaning pairs were only moderately similar. They scored higher than unrelated pairs, but much lower than monolingual negation or role-reversal pairs.
 
+### Visualization
+
+![Mean cosine similarity by category](figures/category_mean_similarity.png)
+
+The bar chart shows that several categories predicted to have low similarity, especially word-order/argument swaps and negation pairs, received the highest cosine similarity scores. This suggests that mean-pooled mBERT embeddings may be more sensitive to word overlap and topic similarity than to precise logical meaning.
+
+![Pair-level cosine similarities by category](figures/pair_similarity_color.png)
+
+The pair-level plot shows that there is some variation within each type of sentence pair. However, the high similarity scores for negation and role-reversal pairs were not caused by a single outlier and most examples in those categories clustered at high similarity.
+
 ### Interpretation
 
 These results suggest that mean-pooled multilingual BERT embeddings capture surface-level or topical similarity more strongly than precise logical meaning.
