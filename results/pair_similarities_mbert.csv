@@ -1,0 +1,37 @@
+id,sentence_1,sentence_2,language_1,language_2,category,expected_similarity,similarity
+1,The cat is sleeping.,猫在睡觉。,English,Chinese,cross_lingual_same_meaning,high,0.5348
+2,She likes music.,彼女は音楽が好きです。,English,Japanese,cross_lingual_same_meaning,high,0.6074
+3,The student finished the homework.,学生完成了作业。,English,Chinese,cross_lingual_same_meaning,high,0.6712
+4,The dog is running.,犬が走っています。,English,Japanese,cross_lingual_same_meaning,high,0.3638
+5,The weather is cold today.,今天天气很冷。,English,Chinese,cross_lingual_same_meaning,high,0.641
+6,He is reading a book.,彼は本を読んでいます。,English,Japanese,cross_lingual_same_meaning,high,0.5247
+7,The cat is sleeping.,猫没有睡觉。,English,Chinese,cross_lingual_negation_mismatch,low,0.564
+8,She likes music.,彼女は音楽が好きではありません。,English,Japanese,cross_lingual_negation_mismatch,low,0.5867
+9,The student finished the homework.,学生没有完成作业。,English,Chinese,cross_lingual_negation_mismatch,low,0.5876
+10,The dog is running.,犬は走っていません。,English,Japanese,cross_lingual_negation_mismatch,low,0.3714
+11,The weather is cold today.,今天天气不冷。,English,Chinese,cross_lingual_negation_mismatch,low,0.5487
+12,He is reading a book.,彼は本を読んでいません。,English,Japanese,cross_lingual_negation_mismatch,low,0.5089
+13,The cat is sleeping.,The cat is not sleeping.,English,English,english_negation,low,0.9203
+14,She likes music.,She does not like music.,English,English,english_negation,low,0.8561
+15,The student finished the homework.,The student did not finish the homework.,English,English,english_negation,low,0.8744
+16,The dog is running.,The dog is not running.,English,English,english_negation,low,0.8927
+17,猫在睡觉。,猫没有睡觉。,Chinese,Chinese,chinese_negation,low,0.8688
+18,她喜欢音乐。,她不喜欢音乐。,Chinese,Chinese,chinese_negation,low,0.9133
+19,学生完成了作业。,学生没有完成作业。,Chinese,Chinese,chinese_negation,low,0.85
+20,狗在跑步。,狗没有跑步。,Chinese,Chinese,chinese_negation,low,0.8373
+21,猫が寝ています。,猫は寝ていません。,Japanese,Japanese,japanese_negation,low,0.8819
+22,彼女は音楽が好きです。,彼女は音楽が好きではありません。,Japanese,Japanese,japanese_negation,low,0.9551
+23,学生は宿題を終えました。,学生は宿題を終えていません。,Japanese,Japanese,japanese_negation,low,0.9242
+24,犬が走っています。,犬は走っていません。,Japanese,Japanese,japanese_negation,low,0.8958
+25,The cat is sleeping.,The feline is sleeping.,English,English,synonym_substitution,high,0.8674
+26,She likes music.,She enjoys music.,English,English,synonym_substitution,high,0.8713
+27,The student finished the homework.,The pupil completed the assignment.,English,English,synonym_substitution,high,0.8274
+28,The dog is running.,The canine is jogging.,English,English,synonym_substitution,high,0.6849
+29,The boy chased the girl.,The girl chased the boy.,English,English,word_order_argument_swap,low,0.9955
+30,The teacher helped the student.,The student helped the teacher.,English,English,word_order_argument_swap,low,0.9895
+31,The cat watched the dog.,The dog watched the cat.,English,English,word_order_argument_swap,low,0.9835
+32,The player beat the coach.,The coach beat the player.,English,English,word_order_argument_swap,low,0.9787
+33,The cat is sleeping.,The car needs gasoline.,English,English,unrelated,low,0.6045
+34,She likes music.,The mountain is very tall.,English,English,unrelated,low,0.4286
+35,The student finished the homework.,The soup tastes salty.,English,English,unrelated,low,0.3178
+36,The dog is running.,The phone battery is low.,English,English,unrelated,low,0.5522

@@ -1,0 +1,9 @@
+category,expected_similarity,mean_similarity,std_similarity,min_similarity,max_similarity,count
+word_order_argument_swap,low,0.9868,0.0073,0.9787,0.9955,4
+japanese_negation,low,0.9142,0.0324,0.8819,0.9551,4
+english_negation,low,0.8859,0.0274,0.8561,0.9203,4
+chinese_negation,low,0.8674,0.0333,0.8373,0.9133,4
+synonym_substitution,high,0.8128,0.0875,0.6849,0.8713,4
+cross_lingual_same_meaning,high,0.5572,0.1109,0.3638,0.6712,6
+cross_lingual_negation_mismatch,low,0.5279,0.082,0.3714,0.5876,6
+unrelated,low,0.4758,0.1286,0.3178,0.6045,4
