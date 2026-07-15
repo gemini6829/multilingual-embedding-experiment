@@ -41,7 +41,7 @@ The categories are:
 ## Initial Predictions
 
 | Category | Expected Similarity | Reason |
-|---|---:|---|
+|---|:---:|---|
 | `cross_lingual_same_meaning` | High | The two sentences are translations with the same meaning. |
 | `synonym_substitution` | High | The wording changes, but the meaning is mostly preserved. |
 | `cross_lingual_negation_mismatch` | Low | One sentence is negated, so the meaning changes. |
@@ -50,8 +50,6 @@ The categories are:
 | `japanese_negation` | Low | Negation changes the truth conditions of the sentence. |
 | `word_order_argument_swap` | Low | Reversing subject/object roles changes who is doing the action. |
 | `unrelated` | Low | The sentences discuss different topics. |
-
-My original expectation was that same-meaning translations and synonym pairs would have the highest similarity, while negation pairs, role-reversal pairs, and unrelated pairs would have lower similarity.
 
 ## 1st Experiment
 
@@ -67,7 +65,7 @@ For each sentence:
 ### Results
 
 | Category | Expected Similarity | Mean Similarity |
-|---|---:|---:|
+|---|:---:|:---:|
 | `cross_lingual_same_meaning` | High | 0.5572 |
 | `synonym_substitution` | High | 0.8128 |
 | `cross_lingual_negation_mismatch` | Low | 0.5279 |
@@ -77,9 +75,7 @@ For each sentence:
 | `word_order_argument_swap` | Low | 0.9868 |
 | `unrelated` | Low | 0.4758 |
 
-The categories above are listed in the order of expected similarity from high to low. Unexpectedly, the highest average similarity came from the word-order/argument-swap category.
-
-For example:
+The categories above are listed in the order of expected similarity from high to low. Unexpectedly, the highest average similarity came from the word-order/argument-swap category. For example:
 
     The boy chased the girl.
     The girl chased the boy.
@@ -99,12 +95,10 @@ Cross-lingual same-meaning pairs were only moderately similar. They scored highe
 
 These results suggest that mean-pooled multilingual BERT embeddings capture surface-level or topical similarity more strongly than precise logical meaning.
 
-In this setup, high cosine similarity did not always mean that two sentences had the same meaning. Sentences with nearly identical words often received very high similarity, even when their meanings changed through negation or role reversal.
-
-The cross-lingual results were also interesting. Same-meaning translated pairs scored only slightly higher than cross-lingual negation mismatches:
+In this setup, high cosine similarity did not always mean that two sentences had the same meaning. Sentences with nearly identical words often received very high similarity, even when their meanings changed through negation or role reversal. The cross-lingual results were also interesting. Same-meaning translated pairs scored only slightly higher than cross-lingual negation mismatches:
 
 | Category | Mean Similarity |
-|---|---:|
+|---|:---:|
 | `cross_lingual_same_meaning` | 0.5572 |
 | `cross_lingual_negation_mismatch` | 0.5279 |
 
