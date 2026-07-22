@@ -114,11 +114,11 @@ After Experiment 1, I tested whether the results were mainly effected by the mea
 ### Results
 
 | Category | Expected Similarity | Mean Pooling | CLS Token |
-|---|---:|---:|---:|
+|---|:---:|:---:|:---:|
 | `word_order_argument_swap` | Low | 0.9868 | 0.9945 |
-| `japanese_negation` | Low | 0.9142 | 0.9262 |
-| `english_negation` | Low | 0.8859 | 0.9604 |
-| `chinese_negation` | Low | 0.8674 | 0.9777 |
+| `japanese_negation` | Medium | 0.9142 | 0.9262 |
+| `english_negation` | Medium | 0.8859 | 0.9604 |
+| `chinese_negation` | Medium | 0.8674 | 0.9777 |
 | `synonym_substitution` | High | 0.8128 | 0.9588 |
 | `cross_lingual_same_meaning` | High | 0.5572 | 0.8244 |
 | `cross_lingual_negation_mismatch` | Low | 0.5279 | 0.7747 |
