@@ -9,7 +9,7 @@ DEFAULT_MODEL_NAME = "bert-base-multilingual-cased"
 
 def get_device() -> torch.device:
     """
-    Choose the best available device. (CPU, CUDA, MPS)
+    CPU, CUDA, MPS
     """
     if torch.cuda.is_available():
         return torch.device("cuda")
@@ -27,8 +27,8 @@ def load_embedding_model(
 
     Returns:
         tokenizer: Converts text into token IDs.
-        model: Converts token IDs into contextual token embeddings.
-        device: CPU/GPU/MPS device used by the model.
+        model: Converts token IDs into embeddings.
+        device: CPU/GPU/MPS
     """
     device = get_device()
 
@@ -45,9 +45,7 @@ def mean_pool(
     attention_mask: torch.Tensor,
 ) -> torch.Tensor:
     """
-    Convert token-level embeddings into one sentence-level embedding.
-
-    BERT returns an embedding for each token. Average the token embeddings while ignoring padding tokens.
+    Convert token-level embeddings into one sentence-level embedding. Average the token embeddings while ignoring padding tokens.
     """
     mask = attention_mask.unsqueeze(-1).expand(token_embeddings.size()).float()
 
