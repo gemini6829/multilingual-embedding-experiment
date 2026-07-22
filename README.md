@@ -128,10 +128,33 @@ A pair of sentences can receive high similarity because they share words, topics
 
 Because of these limitations, the results should not be treated as final conclusions about multilingual BERT. Instead, they show patterns worth investigating and help illustrate the limits of simple embedding-based analysis.
 
+## 2nd Experiment: CLS-Token Embeddings
+
+After Experiment 1, I tested whether the results were mainly effected by the mean-pooling method. I reran the same sentence-pair dataset using the CLS-token embedding from `bert-base-multilingual-cased` instead of mean pooling. The prediction was that CLS-token embeddings would be more sensitive to meaning-changing edits such as negation and role reversal.
+
+### Results
+
+| Category | Expected Similarity | Mean Pooling | CLS Token |
+|---|---:|---:|---:|
+| `word_order_argument_swap` | Low | 0.9868 | 0.9945 |
+| `japanese_negation` | Low | 0.9142 | 0.9262 |
+| `english_negation` | Low | 0.8859 | 0.9604 |
+| `chinese_negation` | Low | 0.8674 | 0.9777 |
+| `synonym_substitution` | High | 0.8128 | 0.9588 |
+| `cross_lingual_same_meaning` | High | 0.5572 | 0.8244 |
+| `cross_lingual_negation_mismatch` | Low | 0.5279 | 0.7747 |
+| `unrelated` | Low | 0.4758 | 0.7898 |
+
+CLS-token embeddings did not fix the unexpected behavior from Experiment 1, instead it increased the cosine similarity for every category, including categories that were expected to have low similarity.
+
+The role-reversal category remained the highest-scoring category, with a mean similarity of 0.9945. Negation categories also remained very high. The cross-lingual same-meaning category improved from 0.5572 to 0.8244, but the cross-lingual negation mismatch category also increased from 0.5279 to 0.7747. One surprising result was that unrelated sentence pairs also became much more similar, increasing from 0.4758 with mean pooling to 0.7898 with CLS. 
+
+### Interpretation
+
+The consistent high scores of the role-reversal and negation categories suggests that the previous results in Experiment 1 were not only caused by mean pooling. All categories showed an increase, which means CLS embeddings created higher cross-lingual similarity overall, but still did not clearly separate same-meaning translations from negation mismatches. This suggests that CLS-token embeddings may compress many sentence pairs into a high-similarity range, making cosine similarity less useful for distinguishing precise semantic relationships in this setup.
+
 ### Next Steps
 
 1. Expanding the dataset with more sentence pairs.
 2. Testing a sentence-transformer model trained specifically for semantic similarity.
-3. Comparing CLS-token embeddings against mean-pooled embeddings.
-4. Adding more controlled examples for negation and role reversal.
-5. Creating visualizations of category-level similarity patterns.
+3. Adding more controlled examples for negation and role reversal.

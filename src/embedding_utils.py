@@ -57,6 +57,12 @@ def mean_pool(
     sentence_embeddings = summed_embeddings / token_counts
     return sentence_embeddings
 
+def cls_pool(token_embeddings: torch.Tensor) -> torch.Tensor:
+    """
+    Use CLS token embedding as the sentence-level embedding. (In BERT-style models, the first token is a special CLS token.)
+    """
+    return token_embeddings[:, 0, :]
+
 def embed_sentences(
     sentences: Iterable[str],
     tokenizer: AutoTokenizer,
@@ -64,6 +70,7 @@ def embed_sentences(
     device: torch.device,
     batch_size: int = 16,
     normalize: bool = True,
+    pooling_method: str = "mean",
 ) -> np.ndarray:
     """
     Convert a list of sentences into a matrix of sentence embeddings.
@@ -89,10 +96,13 @@ def embed_sentences(
         with torch.no_grad():
             outputs = model(**inputs)
 
-        sentence_embeddings = mean_pool(
-            outputs.last_hidden_state,
-            inputs["attention_mask"],
-        )
+        if pooling_method == "mean":
+            sentence_embeddings = mean_pool(
+                outputs.last_hidden_state,
+                inputs["attention_mask"],
+            )
+        elif pooling_method == "cls":
+            sentence_embeddings = cls_pool(outputs.last_hidden_state)
 
         if normalize:
             sentence_embeddings = F.normalize(sentence_embeddings, p=2, dim=1)
@@ -121,6 +131,7 @@ def create_embedding_lookup(
     model: AutoModel,
     device: torch.device,
     batch_size: int = 16,
+    pooling_method: str = "mean"
 ) -> Dict[str, np.ndarray]:
     """
     Create a dictionary mapping each unique sentence to its embedding. Embed each unique sentence once.
@@ -133,6 +144,7 @@ def create_embedding_lookup(
         model=model,
         device=device,
         batch_size=batch_size,
+        pooling_method=pooling_method,
     )
 
     return {
