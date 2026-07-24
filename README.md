@@ -128,6 +128,12 @@ CLS-token embeddings did not fix the unexpected behavior from Experiment 1, inst
 
 The role-reversal category remained the highest-scoring category, with a mean similarity of 0.9945. Negation categories also remained very high. The cross-lingual same-meaning category improved from 0.5572 to 0.8244, but the cross-lingual negation mismatch category also increased from 0.5279 to 0.7747. One surprising result was that unrelated sentence pairs also became much more similar, increasing from 0.4758 with mean pooling to 0.7898 with CLS. 
 
+### Visualization
+
+![Mean pooling vs. CLS-token comparison](figures/mean_vs_cls_category_comparison.png)
+
+The comparison between mean pooling and CLS-token embeddings shows that the same patterns from the first experiment remain. CLS-token embeddings produced higher cosine similarity across every category, shown by the orange bars.
+
 ### Interpretation
 
 The consistent high scores of the role-reversal and negation categories suggests that the previous results in Experiment 1 were not only caused by mean pooling. All categories showed an increase, which means CLS embeddings created higher cross-lingual similarity overall, but still did not clearly separate same-meaning translations from negation mismatches. This suggests that CLS-token embeddings may compress many sentence pairs into a high-similarity range, making cosine similarity less useful for distinguishing precise semantic relationships in this setup.

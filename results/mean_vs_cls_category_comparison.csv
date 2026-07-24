@@ -1,0 +1,9 @@
+category,expected_similarity,mean_similarity_mean_pooling,mean_similarity_cls,difference_cls_minus_mean
+unrelated,low,0.4758,0.7898,0.314
+cross_lingual_negation_mismatch,low,0.5279,0.7747,0.2468
+cross_lingual_same_meaning,high,0.5572,0.8244,0.2672
+synonym_substitution,high,0.8128,0.9588,0.146
+chinese_negation,low,0.8674,0.9777,0.1103
+english_negation,low,0.8859,0.9604,0.0745
+japanese_negation,low,0.9142,0.9262,0.012
+word_order_argument_swap,low,0.9868,0.9945,0.0077
